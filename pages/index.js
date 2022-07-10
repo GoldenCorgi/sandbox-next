@@ -1,13 +1,19 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
-import { getSortedPostsData } from '../lib/posts';
+import { getSortedPostsData } from '../lib/getHackathons';
 import Link from 'next/link';
 import Date from '../components/date';
+import Hero from '../components/hero';
+import VideoFeature from '../components/video_feature';
+import CustomFooter from '../components/footer';
+import CardWithImage from '../components/card';
+import { SimpleGrid, Container  } from '@chakra-ui/react'
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const allPostsData = await getSortedPostsData();
   console.log(allPostsData)
+  console.log(allPostsData[0]['Hackathon Name'])
   return {
     props: {
       allPostsData,
@@ -17,34 +23,35 @@ export async function getStaticProps() {
 
 export default function Home({ allPostsData }) {
   return (
-    <Layout home>
+    <div>
+      <Hero />
+      <VideoFeature />
+
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>[Your Self Introduction]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this in{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-        <br>
-        </br>
-        <h2 >Blog</h2>
-        <ul >
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/hackathons/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
+      <Container maxW='80%' >
+          <SimpleGrid columns={3} spacing={3}>
+
+            {allPostsData.map((post) => (
+
+              <div className={utilStyles.listItem} key={post["Hackathon Name"]}>
+                {CardWithImage("https://sandboxsg.com/src/hackathon/" + post['Image Link'], post["Hackathon Name"], post['Genre'], post['Description'])}
+                {/* <Link href={`/hackathons/`}>
+                  <a>{post["Hackathon Name"]}</a>
+                </Link> */}
+                <br />
+                <small className={utilStyles.lightText}>
+                  {/* <Date dateString={date} /> */}
+                </small>
+              </div>
+            ))}
+          </SimpleGrid>
+        </Container >
       </section>
 
-    </Layout>
+      <CustomFooter />
+    </div>
   )
 }
