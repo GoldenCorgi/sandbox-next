@@ -46,6 +46,7 @@ export default function CardWithImage(post) {
             src={imageLink}
             layout="fill"
             objectFit="contain"
+            alt="hackathon image"
           />
         </Box>
         <Stack h="300px">
