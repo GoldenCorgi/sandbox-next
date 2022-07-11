@@ -9,6 +9,7 @@ import VideoFeature from '../components/video_feature';
 import CustomFooter from '../components/footer';
 import CardWithImage from '../components/card';
 import { SimpleGrid, Container  } from '@chakra-ui/react'
+import SEO from '../components/SEO'
 
 export async function getStaticProps() {
   const allPostsData = await getSortedPostsData();
@@ -24,6 +25,7 @@ export async function getStaticProps() {
 export default function Home({ allPostsData }) {
   return (
     <div>
+      <SEO></SEO>
       <Hero />
       <VideoFeature />
 
