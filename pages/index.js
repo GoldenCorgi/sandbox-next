@@ -32,12 +32,12 @@ export default function Home({ allPostsData }) {
       </Head>
       <section className={utilStyles.headingMd}>
       <Container maxW='80%' >
-          <SimpleGrid columns={3} spacing={3}>
+          <SimpleGrid minChildWidth='445px' spacing='40px'>
 
             {allPostsData.map((post) => (
 
               <div className={utilStyles.listItem} key={post["Hackathon Name"]}>
-                {CardWithImage("https://sandboxsg.com/src/hackathon/" + post['Image Link'], post["Hackathon Name"], post['Genre'], post['Description'])}
+                {CardWithImage(post)}
                 {/* <Link href={`/hackathons/`}>
                   <a>{post["Hackathon Name"]}</a>
                 </Link> */}
