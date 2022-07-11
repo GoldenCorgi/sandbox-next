@@ -1,22 +1,25 @@
 .HackathonType {
-    background-color:lightblue;
-    border-radius:10px;
-    text-align:left;
+    background-color: lightblue;
+    border-radius: 10px;
+    text-align: left;
     text-indent: 1em;
+    margin-bottom: 1em
 }
 
 
 .HackathonDifficulty {
-    background-color:lightgreen;
-    border-radius:10px;
-    text-align:left;
+    background-color: lightgreen;
+    border-radius: 10px;
+    text-align: left;
     text-indent: 1em;
+    margin-bottom: 1em
 }
 
 
 .HackathonTeam {
-    background-color:lightcyan;
-    border-radius:10px;
-    text-align:left;
+    background-color: lightcyan;
+    border-radius: 10px;
+    text-align: left;
     text-indent: 1em;
+    margin-bottom: 1em
 }

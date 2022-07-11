@@ -48,14 +48,16 @@ export default function CardWithImage(post) {
             objectFit="contain"
           />
         </Box>
-        <Stack>
+        <Stack h="300px">
           <Heading
             color={useColorModeValue('gray.700', 'white')}
             fontSize={'2xl'}
             fontFamily={'body'}>
             {title}
           </Heading>
-          <Text color={'gray.500'}>
+          <Text
+            color={'gray.500'}
+            overflow={'hidden'}>
             {description}
           </Text>
         </Stack>
